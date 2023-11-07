@@ -1,0 +1,39 @@
+.toggleMenuSvg {
+  position: relative;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &::after, &::before, span {
+    content: '';
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    width: 23px;
+    height: 1.7px;
+    background-color: #fff;
+    transition: .4s;
+  }
+  &::after {
+    top: 6px;
+  }
+  &::before {
+    top: 20px;
+  }
+}
+.active {
+  span {
+    opacity: 0;
+  }
+  &::after {
+    top: 14px;
+    transform: rotate(45deg);
+  }
+  &::before {
+    top: 14px;
+    transform: rotate(-45deg);
+  }
+}

@@ -1,0 +1,16 @@
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  .contentMediaContainer {
+
+    .subTitle {
+      font-weight: 300;
+      color: #1F3449;
+      font-size: 16px;
+      padding-bottom: 12px; 
+    }
+  }
+
+}

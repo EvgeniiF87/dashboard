@@ -1,0 +1,43 @@
+.left, .right{
+  gap: 0 12px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.message {
+  border: 1px solid #EEEEEE;
+  border-radius: 10px 10px 10px 0;
+  color: black;
+  padding: 20px;
+  background-color: #F4F6FF;
+  max-width: 670px;
+  word-wrap: break-word;
+  span {
+    font-weight: 700;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+}
+
+.avatar {
+  display: flex;
+  align-self: flex-end;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #1375AD;
+}
+
+.right {
+  flex-direction: row-reverse;
+  .message {
+    color: #fff;
+    background-color: #507AA5;
+    border-radius: 10px 10px 0 10px;
+  }
+}

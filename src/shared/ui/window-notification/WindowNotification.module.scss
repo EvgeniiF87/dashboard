@@ -1,0 +1,31 @@
+.conteiner {
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  position: fixed;
+  top: -150px;
+  right: 100px;
+  margin: 0px 10px;
+  padding: 30px 20px;
+  background-color: black;
+  border: 2px rgb(242, 214, 32) solid;
+  border-radius: 5px;
+  z-index: 2;
+  transition: top 0.5s ease-out;
+  h1 {
+    color: rgb(242, 214, 32);
+    text-align: center;
+    font-size: 24px;
+    margin: 0;
+  }
+  div {
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    cursor: pointer;
+  }
+}
+
+.conteiner_on {
+  top: 50px;
+}

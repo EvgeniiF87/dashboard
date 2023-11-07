@@ -1,0 +1,33 @@
+.root {
+  background-color: rgba(255, 255, 255, 0);
+  color: #1375ad;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 136px;
+  padding: 8px 0;
+  column-gap: 8px;
+ 
+
+  .buttonPlus {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 23px;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #1375ad;
+    position: relative;
+    &::after {
+      content: "+";
+      position: absolute;
+      top: -5px;
+    }
+  }
+
+  .buttonText {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+}

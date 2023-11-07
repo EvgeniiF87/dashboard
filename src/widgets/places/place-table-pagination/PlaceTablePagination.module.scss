@@ -1,0 +1,10 @@
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  .pagination {
+    min-width: 180px;
+    min-height: 62px;
+  }
+}

@@ -1,0 +1,23 @@
+.inputs {
+  display: flex;
+  gap: 60px;
+}
+.inputsLeft, .inputsRight {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+  width: 100%;
+  p {
+    margin-top: 50px;
+    font-size: 13px;
+  }
+}
+.password {
+  margin-top: 20px;
+}
+.btn {
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: 400 !important;
+}

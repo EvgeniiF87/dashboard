@@ -1,0 +1,40 @@
+.root {
+  max-width: 180px;
+  height: 177px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+
+ 
+  
+  .add_file {
+    width: 140px;
+    height: 140px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border, #eee);
+    background: #fcfcfc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    p {
+      color: var(--placeholder, #d7d7d7);
+      font-family: Inter;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 120%;
+    }
+  }
+  
+  .more_file {
+    width: 80px;
+    height: 80px;
+  }
+} 
+.smallSize {
+    width: 92px;
+    height: 118px;
+  }

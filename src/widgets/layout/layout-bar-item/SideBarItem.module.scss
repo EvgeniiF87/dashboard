@@ -1,0 +1,82 @@
+%title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-wrap: nowrap;
+}
+.titleItem {
+  @extend %title;
+  &:hover {
+    background-color: #3e454b;
+  }
+}
+
+.smallTitleItem {
+  padding: 10px;
+}
+
+.titleLeftContainer {
+  display: flex;
+  align-items: center;
+}
+
+.iconText {
+  display: block;
+  font-size: 1.1rem;
+  color: #e8e7e7;      
+  opacity: 0;
+  transition: 0.6s ease;
+  overflow: hidden;
+  &_active {
+    opacity: 1;
+  }
+}
+
+.childrenTitle {
+  @extend %title;
+
+  &:hover {
+    background-color: #3e454b;
+  }
+
+  .titleLeftContainer {
+    display: flex;
+    align-items: center;
+    .iconText {
+      margin-left: 5px;
+      display: block;
+      font-size: 1.1rem;
+      color: #e8e7e7;
+      opacity: 0;
+      transition: 0.6s ease;
+      &_active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.activeLink {
+  background-color: #ffff !important;
+  & .iconText{
+    color: #000 !important;
+  }
+}
+
+.navActive {
+  background-color: #1375AD !important;
+}
+
+.iconMenu {
+  display: flex;
+  margin: 0 12px 0 10px;
+  transition: .4s;
+}
+
+.iconSmallMenu {
+  padding-left: 20px;
+}

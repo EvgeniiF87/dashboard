@@ -1,0 +1,83 @@
+.root {
+  padding: 40px ;
+  display: flex;
+  flex-direction: column;
+
+  .inputTitte {
+    margin-bottom: 15px;
+  }
+  .inputTexareaDesc {
+    padding-bottom: 20px;
+  }
+
+  .infoContainer {
+    display: flex;
+    justify-content: space-between;
+    
+    .leftSideContainer {
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+    .rightSideContainer {
+      width: 48%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+    }
+  }
+
+  .timeContainer {
+    // display: flex;
+    // justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+    
+.mapContainer {
+  position: relative;
+ .mapLabel {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+  padding-bottom: 5px;
+ }
+  .infoMap {
+    border-radius: 10px;
+    height: 134px;
+    width: 100%;
+  }
+}
+
+
+
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+
+
+  .checBoxContainer {
+    display: flex;
+    align-items: center;
+    .checkedButton {
+      max-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .buttonsContainer {
+    display: flex;
+    column-gap: 20px;
+  }
+
+}
+
+}

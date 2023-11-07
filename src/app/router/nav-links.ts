@@ -1,0 +1,15 @@
+export const NAV = {
+  MAIN: "/",
+  STATISTICS:"/statistics",
+  EVENTS: "events",
+  EVENT_ADD: "event/add",
+  PLACES: "places",
+  PLACE_ADD: "places/add",
+  EVENT_UPDATA: "event/update/:id",
+  LOGIN_BY_PASSWORD: "login-by-password",
+  LOGIN_BY_PHONE:'login-by-phone',
+  REGISTRATION: "registration",
+  PROFILE: "profile/:id",
+  SUPPORT: "support",
+  NO_PAGE: "*",
+};

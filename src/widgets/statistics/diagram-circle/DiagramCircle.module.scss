@@ -1,0 +1,41 @@
+.root {
+  width: 480px;
+  padding: 20px;
+  border: 1px solid #326273;
+  border-radius: 12px;
+
+  .title {
+    color: #326273;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 132%;
+    margin-bottom: 37px;
+  }
+  
+  .container_diagram {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .list {
+    li {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 24px;
+  
+      .beforName {
+        width: 35px;
+        height: 11px;
+        border-radius: 8px;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+}
+

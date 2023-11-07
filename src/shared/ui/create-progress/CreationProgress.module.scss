@@ -1,0 +1,46 @@
+.root {
+  display: flex;
+  column-gap: 20px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+
+  .progressItem {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+  }
+
+  .currentIndex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #D7D7D7;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    transition: background-color 0.4s ease;
+  }
+
+  .currentIndexActive {
+    transition: background-color 0.4s ease;
+    background-color: #507AA5;
+  }
+  .currentTitle {
+   color: #1F3449;
+   font-size: 16px;
+   font-weight: 300;
+   white-space: nowrap
+  }
+  .separator {
+    width: 28px;
+    height: 1px;
+    background-color: black;
+    @media (max-width: 1232px) {
+      display: none;
+    }
+  }
+}

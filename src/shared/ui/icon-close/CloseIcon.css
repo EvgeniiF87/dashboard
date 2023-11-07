@@ -1,0 +1,44 @@
+.close__wrapper {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close__wrapper::after, .close__wrapper::before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  border-radius: 20px;
+  background-color: #000000;
+}
+
+.close__wrapper::after {
+  transform: rotate(45deg);
+}
+.close__wrapper::before {
+  transform: rotate(-45deg);
+}
+
+.close__wrapper:hover::after {
+  background-color: #000000;
+}
+.close__wrapper:hover::before {
+  background-color: #000000;
+}
+
+.close-size__sm {
+  width: 20px;
+  height: 20px;
+}
+.close-size__md {
+  width: 30px;
+  height: 30px;
+}
+.close-size__lg {
+  width: 45px;
+  height: 45px;
+}
+

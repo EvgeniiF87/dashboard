@@ -1,0 +1,72 @@
+.managementList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+
+
+  .icon {
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+    &:hover::before {
+      content: attr(data-tooltip);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      background-color: #343a40;
+      padding: 6px 12px;
+      border-radius: 5px;
+      white-space: nowrap;
+      opacity: 0;
+      animation: hits 0.1s alternate 1;
+      animation-delay: .6s;
+      animation-fill-mode: forwards;
+    }
+
+    &:hover::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: #343a40;
+      position: absolute;
+      rotate: (45deg);
+      top: -16px;
+      left: 40%;
+      transform: translateX(-50%);
+      border-radius: 1px;
+      opacity: 0;
+      animation: hits-arrow 0.3s alternate 1;
+      animation-delay: .6s;
+      animation-fill-mode: forwards;
+    }
+  }
+
+}
+
+@keyframes hits {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hits-arrow {
+  0% {
+    top: -26px;
+    opacity: 0;
+  }
+  100% {
+    top: -16px;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,57 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+
+  .buttonLink {
+    display: flex;
+    align-items: center;
+    background: #1375AD;
+    box-shadow: 1px 1px 4px 0px #0000001F;
+    padding: 8px, 12px, 8px, 12px;
+    border-radius: 8px;
+    span {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 14px;
+    }
+    :nth-child(1) {
+      margin-right: 5px;
+    }
+  } 
+
+  .options {
+    display: flex;
+    gap: 0 20px;
+    .option {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      gap: 0 12px;
+      padding: 8px;
+      border: 1px solid #EEEEEE;
+      border-radius: 10px;
+      box-shadow: 0px 0px 4px 0px #00000040;
+
+      input {
+        width: 250px;
+        &::placeholder {
+          font-size: 16px;
+          font-weight: 300;
+          color: #D7D7D7;
+        }
+      }
+
+      .calendar {
+        z-index: 20;
+        position: absolute;
+        top: 45px;
+        left: 0;
+      }
+    }
+  }
+}

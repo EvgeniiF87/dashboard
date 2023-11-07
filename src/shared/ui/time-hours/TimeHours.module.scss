@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  // max-width: 50%;
+  // width: 200px;
+  .label {
+    padding-bottom: 4px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    color: black;
+  }
+  .timeValueContainer {
+    border: 1px solid #eee;
+    padding: 12px;
+    border-radius: 12px;
+    height: 46px;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.055);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .timeContainer {
+      display: flex;
+      span {
+        padding: 0 5px;
+      }
+    }
+
+      .buttonDecrement {
+        background-color: rgba(255, 255, 255, 0);
+      }
+      .buttonIncrement {
+        background-color: rgba(255, 255, 255, 0);
+      }
+
+    .hoursValue {
+    }
+
+    .minutesValue {
+    }
+  }
+}

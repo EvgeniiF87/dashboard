@@ -1,0 +1,76 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.labelText {
+  font-size: 1.3rem;
+  padding-bottom: 3px;
+  color: black;
+}
+.labelErrorText {
+  font-size: 1.3rem;
+  padding-bottom: 3px;
+  color: red;
+}
+
+  .datePicker {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.121);
+    width: 100%;
+    border-radius: 12px;
+  }
+  
+  .datePickerInputContainer {
+  padding: 8px 20px;
+  display: flex;
+  column-gap: 12px;
+  align-items: center;
+  font-size: 1.3rem;
+  height: 44px;
+  cursor: pointer;
+}
+
+.placeholder {
+  color: #D7D7D7;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.datePickerInputContainerTitle {
+  width: 100%;
+  color: #797979;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.datePickerInput {
+  max-width: 280px;
+  color: #797979;
+}
+
+
+.datePickerInputSvg {
+  cursor: pointer;
+}
+
+.datePickerInvalid {
+  border-color: red;
+  color: red;
+}
+
+.popupContentContainer {
+  position: absolute;
+  top: 110%;
+  left: 0%;
+  z-index: 1;
+}
+
+
+
+
+
+
+
+

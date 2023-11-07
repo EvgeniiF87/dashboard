@@ -1,0 +1,122 @@
+.form {
+  margin-bottom: 8px;
+  label {
+    display: inline-block;
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 124%;
+    margin-bottom: 12px;
+  }
+
+  .input_code {
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid var(--border, #eee);
+
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 124%;
+  }
+
+  .container_input {
+    display: flex;
+    column-gap: 12px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border, #eee);
+    margin-bottom: 32px;
+    opacity: 0.5;
+  }
+
+  .container_input_active {
+    opacity: 1;
+  }
+
+  .container_input::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url(../../../public/call.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    //opacity: .5;
+  }
+
+  input {
+    width: 100%;
+    //color: var(--placeholder, #d7d7d7);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 124%;
+  }
+
+  .timer {
+    padding: 12px 0px 32px 0px;
+    color: #000;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  .button_container {
+    display: flex;
+    column-gap: 20px;
+  }
+
+  .get_code {
+    all: unset;
+    min-width: 200px;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: rgba(80, 122, 165);
+
+    color: rgba(255, 255, 255);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 124%;
+    opacity: 0.5;
+  }
+
+  .get_code_repeat {
+    background-color: #ffffff;
+    color: var(--button, #507aa5);
+    border-radius: 8px;
+    border: 1px solid var(--button, #507aa5);
+    opacity: 0.5;
+  }
+
+  //   .get_code_repeat_active {
+  //     opacity: 1;
+  //   }
+
+  .get_code_active {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
+p {
+  padding: 8px 0px;
+  color: var(--button, #507aa5);
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}

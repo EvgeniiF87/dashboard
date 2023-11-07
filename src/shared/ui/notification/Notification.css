@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+path {
+  stroke: rgba(0,0,0,.7);
+}
+.box:hover path{
+  stroke: rgba(0,0,0,1);
+}
+.number {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: -2px;
+  top: 4px;
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+}

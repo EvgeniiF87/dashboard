@@ -1,0 +1,55 @@
+.root {
+  height: max-content;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border, #eee);
+  background: #fff;
+}
+.title_container {
+  margin-bottom: 12px;
+}
+
+.title {
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 124%;
+}
+
+.canvas {
+  margin-bottom: 12px;
+}
+
+.marker_container {
+  display: flex;
+  column-gap: 40px;
+  justify-content: center;
+  .marker_discription {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+  }
+
+  .marker {
+    width: 60px;
+    height: 8px;
+    border-radius: 12px;
+  }
+  .marker_views {
+    background: var(--unnamed, #1375ad);
+  }
+  .marker_subscribers {
+    background: var(--unnamed, #000);
+  }
+}

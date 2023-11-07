@@ -1,0 +1,49 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
+
+  .labelText {
+    padding: 5px 0;
+    font-size: 1.3rem;
+    transition: all 0.4s ease;
+    color: black;
+  }
+
+  .labelTextActive {
+    transition: all 0.4s ease;
+
+  }
+
+  .errorText {
+    padding: 10px 0;
+    color: red;
+    font-size: 1.3rem;
+  }
+
+  .textarea {
+    border: 1px solid rgba(0, 0, 0, 0.121);
+    background: #ffffff;
+    border-radius: 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    padding: 7px 16px 7px 16px;
+    resize: none;
+    transition: border-color 150ms ease;
+    border-radius: 12px;
+    font-weight: 300;
+    color: rgb(73, 68, 68);
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+
+    &:focus {
+      box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.09);
+    }
+    &::placeholder {
+      color: #e0e0e0;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.root {
+  font-weight: 700;
+  font-size: 14px;
+  display: grid;
+  gap: 0 14px;
+  grid-template-columns: 30px 16px 24px 0.498fr 0.498fr 100px 100px 85px 80px 115px;
+  li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+    border-left: 1px solid white;    
+  }
+}
+
+.checkbox {
+  justify-content: center;
+}
