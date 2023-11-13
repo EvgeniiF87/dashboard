@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getSearchParams, OptionsSelectType, useAppDispatch } from "../../../shared";
+import { getSearchParams, useAppDispatch } from "../../../shared";
 import { placeAction, usePlaceSelect } from "../model";
 import * as thunk from "../model/thunk";
 import { CreatePlaceFields, UpdatePlaceInput } from "../DTO/place-dto";
@@ -9,6 +9,7 @@ import { fetchUploadPreview } from "../../uploads/model/thunk";
 import { usePaginationSelect } from "../../pagination";
 import { cacheAdapter } from "../../../shared/cache";
 import { useActiveNotification } from "../../notification";
+import { useNavigate } from "react-router-dom";
 
 
 /** Создать  место */
@@ -20,7 +21,10 @@ export function useCreatePlace() {
 
   const createPlace = async (payload: CreatePlaceFields, callback: () => void) => {
     if (!userId) {
-      console.log("Failet to user id");
+      activeNotification({
+        message: 'Пользователь не найден',
+        status: 'error',
+      })
       return "Failet to user id";
     }
 
@@ -59,7 +63,7 @@ export function useCreatePlace() {
 
     if (responseCreate.meta.requestStatus === "fulfilled") {
       callback()
-      cacheAdapter.resetKeysInCach('place')
+      cacheAdapter.resetKeysInCach()
       activeNotification({
         message: 'Место успешно создано',
         status: 'success',
@@ -73,9 +77,20 @@ export function useCreatePlace() {
 /** Удалить  место */
 export function useRemovePlace() {
   const dispatch = useAppDispatch();
+  const { activeNotification } = useActiveNotification()
+  const { error } = usePlaceSelect()
+  const navigate = useNavigate()
 
-  const removePlace = (payload: { id: number }) => {
-    dispatch(thunk.fetchRemovePlace(payload));
+  const removePlace = async(payload: { id: number }) => {
+   const remove = await dispatch(thunk.fetchRemovePlace(payload));
+
+   if (remove.meta.requestStatus === 'fulfilled') {
+    activeNotification({ status: 'success', message: 'Место успешно удалилось' })
+    cacheAdapter.resetKeysInCach()
+    navigate('/places')
+    } else {
+     activeNotification({ status: 'error', message: error || 'Произошла ошибка' })
+   }
   };
 
   return { removePlace };
@@ -84,9 +99,20 @@ export function useRemovePlace() {
 /** Редактировать  место */
 export function useUpdatePlace() {
   const dispatch = useAppDispatch();
+  const { activeNotification } = useActiveNotification();
 
-  const updatePlace = (payload: UpdatePlaceInput) => {
-    dispatch(thunk.fetchUpdatePlace(payload));
+  const updatePlace = async(payload: UpdatePlaceInput) => {
+
+  const responseUpdate = await dispatch(thunk.fetchUpdatePlace(payload));
+
+  if (responseUpdate.meta.requestStatus === "fulfilled") {
+    cacheAdapter.resetKeysInCach()
+    activeNotification({
+      message: 'Место успешно отредактировано',
+      status: 'success',
+    })
+  } 
+
   };
 
   return { updatePlace };
@@ -103,12 +129,22 @@ export function useGetOnePlace() {
   return { getOnePlace };
 }
 
+/** Сбросить инпуты места */
+export function useResetManagmentInputs() {
+  const dispatch = useAppDispatch();
+
+  const resetManagmentInputs = () => {
+    dispatch(placeAction.clearInputs()); 
+  };
+
+  return { resetManagmentInputs };
+}
+
 /** Получить все места */
 export function useFetchAllPlace() {
   const { loading, error, places, paramsSearch } = usePlaceSelect();
   const { placePagination: { currentPage, perPage } } = usePaginationSelect()
   const dispatch = useAppDispatch();
-
 
   useEffect(() => {
     const params = getSearchParams(paramsSearch)
@@ -118,17 +154,18 @@ export function useFetchAllPlace() {
       take: perPage,
       ...params,
     }));
-  }, [currentPage, perPage, paramsSearch])
+  }, [currentPage, perPage, paramsSearch, places])
 
   return { loading, error, places };
 }
 
+/** Меняем инпуты  места */
 export function usePlaceChangeInputs() {
   const dispatch = useAppDispatch();
 
   const handleChangeInputs = (fields: {
     field: string;
-    value: string | OptionsSelectType | boolean;
+    value: string | number | boolean | null | { result: string | null, file: File | null };
   }) => {
     dispatch(placeAction.changeInputs(fields));
   };
@@ -136,6 +173,7 @@ export function usePlaceChangeInputs() {
   return { handleChangeInputs };
 }
 
+/** Очищаем ошибки */
 export function usePlaceClearError() {
   const dispatch = useAppDispatch();
 

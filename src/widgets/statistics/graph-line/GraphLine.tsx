@@ -1,9 +1,11 @@
 import Style from './GraphLine.module.scss';
 import { useEffect } from 'react';
 import { useRef } from 'react';
+import TitleStatistic from '../../../shared/ui/title-statistic/TitleStatistic';
 
 export default function GraphLine() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const listValue = ['неделю', 'все время', 'год', 'месяц'];
   const data = {
     views: [2500, 5000, 2500, 1000, 2500, 2504, 4000],
     subscribers: [2900, 1000, 2900, 1500, 4000, 2594, 4800],
@@ -12,7 +14,11 @@ export default function GraphLine() {
   const numberLine = Math.ceil(Math.max(...data.views) / 1000);
   const graphHeight = numberLine * 41.5 + 22;
 
-  const drawHorizontalLine = (context: CanvasRenderingContext2D, num: number, graphHeight: number) => {
+  const drawHorizontalLine = (
+    context: CanvasRenderingContext2D,
+    num: number,
+    graphHeight: number
+  ) => {
     context.beginPath();
     let startLine = 0;
     for (let i = 0; i < num + 1; i++) {
@@ -24,7 +30,10 @@ export default function GraphLine() {
     context.stroke();
   };
 
-  const drawColumLine = (context: CanvasRenderingContext2D, graphHeight: number) => {
+  const drawColumLine = (
+    context: CanvasRenderingContext2D,
+    graphHeight: number
+  ) => {
     context.beginPath();
     let startColum = 45;
 
@@ -37,7 +46,11 @@ export default function GraphLine() {
     context.stroke();
   };
 
-  const drawnumber = (context: CanvasRenderingContext2D, num: number, graphHeight: number) => {
+  const drawnumber = (
+    context: CanvasRenderingContext2D,
+    num: number,
+    graphHeight: number
+  ) => {
     context.beginPath();
     context.font = 'normal 12px Inter';
     context.fillStyle = 'black';
@@ -67,7 +80,12 @@ export default function GraphLine() {
     });
   };
 
-  const drawViewsChart = (context: CanvasRenderingContext2D , data: number[], graphHeight: number, color: string) => {
+  const drawViewsChart = (
+    context: CanvasRenderingContext2D,
+    data: number[],
+    graphHeight: number,
+    color: string
+  ) => {
     context.beginPath();
 
     let startX = 45;
@@ -93,7 +111,12 @@ export default function GraphLine() {
     context.stroke();
   };
 
-  const drawPointsChart = (context: CanvasRenderingContext2D , data: number[], graphHeight: number, color: string) => {
+  const drawPointsChart = (
+    context: CanvasRenderingContext2D,
+    data: number[],
+    graphHeight: number,
+    color: string
+  ) => {
     context.beginPath();
     let x = 45;
 
@@ -128,9 +151,10 @@ export default function GraphLine() {
 
   return (
     <div className={Style.root}>
-      <div className={Style.title_container}>
-        <h2 className={Style.title}>Количество просмотров и подписок за</h2>
-      </div>
+      <TitleStatistic
+        text={'Количество просмотров и подписок за'}
+        listValue={listValue}
+      />
       <canvas
         className={Style.canvas}
         ref={canvasRef}

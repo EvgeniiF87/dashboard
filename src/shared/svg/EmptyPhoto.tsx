@@ -1,10 +1,10 @@
-const EmptyPhoto = () => {
+const EmptyPhoto = ({color='#EEEEEE'}) => {
   return (
     <svg 
       width="1.6rem" 
       height="1.6rem" 
       viewBox="0 0 25 24" 
-      fill="#EEEEEE" 
+      fill={color} 
       strokeOpacity={0}
       xmlns="http://www.w3.org/2000/svg"
       >

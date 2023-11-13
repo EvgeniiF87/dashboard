@@ -1,26 +1,15 @@
 .root {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
   height: max-content;
   padding: 20px;
   border-radius: 12px;
   border: 1px solid var(--border, #eee);
   background: #fff;
 }
-.title_container {
-  margin-bottom: 12px;
-}
-
-.title {
-  color: #000;
-  text-align: center;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 124%;
-}
 
 .canvas {
-  margin-bottom: 12px;
 }
 
 .marker_container {

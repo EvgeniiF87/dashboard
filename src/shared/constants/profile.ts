@@ -1,3 +1,5 @@
+//////////////////////////////////////////////
+
 export interface IInputsProfile {
   value: string
   label: string
@@ -30,4 +32,22 @@ export const inputsRight: IInputsProfile[] = [
   { type: 'email', value: "email", label: "E-mail", placeholder: "Введите e-mail", requierd: true },
   { type: 'tel', value: "phone", label: "Телефон", placeholder: "Введите номер", requierd: true },
   { value: "netowrk", label: "Соцсеть", placeholder: "Введите соцсеть" },
+]
+
+/////////////////////////////////////////////////////////
+
+export const breadcrumbProfileEditPage = [
+  { name: "Главная", href: "/" },
+  { name: "Личный кабинет", href: "/profile/:id" },
+  { name: "Редактирование профиля", href: null },
+];
+
+export const editProfileInputs: IInputsProfile[] = [
+  { value: "name", label: "Имя", placeholder: "Введите имя", requierd: true },
+  { value: "lastName", label: "Фамилия", placeholder: "Введите фамилию", requierd: true },
+  { value: "patronymic", label: "Отчество", placeholder: "Введите отчество" },
+  { type: 'email', value: "email", label: "E-mail", placeholder: "Введите e-mail", requierd: true },
+  { type: 'tel', value: "phone", label: "Телефон", placeholder: "Введите номер", requierd: true },
+  { type: "password", value: "password", label: "Пароль", placeholder: "Введите пароль", requierd: true },
+  { type: "password", value: "confirmPassword", label: "Подтверждение пароля", placeholder: "Подтвердите пароль", requierd: true },
 ]

@@ -16,13 +16,11 @@ export const fetchCreatePlace = createAppThunk('place/fetchCreatePlace', async(p
 export const fetchRemovePlace = createAppThunk('place/fetchRemovePlace', async(payload: { id: number }, { rejectWithValue })  => {
   const response = await placeAdapter.removePlace(payload.id)
 
-  console.log('fetchRemovePlace:', response)
-
   if ('errors' in response) {
     return rejectWithValue(`Failed fetch remove place: ${response.errors[0].message}`)
   } 
 
-  return {}
+  return response.data.removePlace.id
 })
 
 export const fetchUpdatePlace = createAppThunk('place/fetchUpdatePlace', async(payload: UpdatePlaceInput, { rejectWithValue })  => {
@@ -40,13 +38,11 @@ export const fetchUpdatePlace = createAppThunk('place/fetchUpdatePlace', async(p
 export const fetchGetOnePlace = createAppThunk('place/fetchGetOnePlace', async(payload: { id: number }, { rejectWithValue })  => {
   const response = await placeAdapter.place(payload.id)
 
-  console.log('fetchGetOnePlace:', response)
-
   if ('errors' in response) {
     return rejectWithValue(`Failed fetch get one place: ${response.errors[0].message}`)
   } 
 
-  return {}
+  return response.data.place
 })
 
 export const fetchAllPlaces = createAppThunk('place/fetchAllPlaces', async(params: GetAllPlacesInput, { rejectWithValue })  => {

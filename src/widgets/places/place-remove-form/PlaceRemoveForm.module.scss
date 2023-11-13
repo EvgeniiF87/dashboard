@@ -1,0 +1,24 @@
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+
+
+}
+
+.modalContainer {
+  display: flex;
+  flex-direction: column;
+
+  .modalButtonContainer {
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+  }
+}
+
+.titleRemove {
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 40px 0;
+}

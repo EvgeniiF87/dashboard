@@ -4,6 +4,7 @@ import type { ModalProps } from "./types";
 import "./Modal.css";
 
 const Modal: React.FC<ModalProps> = React.memo((props) => {
+  const { active, handleClose, children, height, width } = props;
   const rootRef = React.useRef<HTMLDivElement>(null);
 
   const rootClasses = {
@@ -11,14 +12,14 @@ const Modal: React.FC<ModalProps> = React.memo((props) => {
     container: ["modal-container"],
   };
 
-  if (props.active) {
+  if (active) {
     rootClasses.wrapper.push("modal-wrapper__active");
     rootClasses.container.push("modal-container__active");
   }
 
   const clickOutside = (e: MouseEvent) => {
-      if (rootRef.current && (e.target as Node).contains(rootRef.current) && props.handleClose) {
-        props.handleClose();
+      if (rootRef.current && (e.target as Node).contains(rootRef.current) && handleClose) {
+        handleClose();
       }
     };
 
@@ -34,36 +35,29 @@ const Modal: React.FC<ModalProps> = React.memo((props) => {
     };
   }, []);
 
+  const styles:{[key: string]: string | number} = {}
+
+  if (width) {
+    styles['width'] = width
+  }
+
+  if (height) {
+    styles['height'] = height
+  }
+
 
   return (
     <div ref={rootRef} className={rootClasses.wrapper.join(" ")}>
       <div
-        style={props.width ? { width: props.width } : {}}
+        style={styles}
         className={rootClasses.container.join(" ")}
       >
-        {props.children}
+        {children}
       </div>
     </div>
   );
-});
+}); 
 
 Modal.displayName = "Modal";
 
 export { Modal };
-
-//example
-
-// const [modal, setModal] = useState(false)
-
-{/* <Modal
-active={modal}
-handleClose={() => setModal(prev => !prev)}
-closeHeader={true}
-handleCancel={() => setModal(prev => !prev)}
-title='title'
-width={'40%'}
->
-  <div>Content</div>
-  <button>OK</button>
-  <button>Cancel</button>
-</Modal> */}

@@ -19,12 +19,12 @@ export enum PlaceDirections {
 export interface PlaceModel {
   categry: string;
   costOption: EventPlaceCostOptionModel[];
-  dateEnd?: Date;
-  dateStart?: Date;
+  dateEnd?: string;
+  dateStart?: string;
   desc: string;
   direction: PlaceDirections;
-  existTimeEnd?: Date;
-  existTimeStart?: Date;
+  existTimeEnd?: string | null;
+  existTimeStart?: string | null;
   id: number;
   images: ImageModel[];
   info: InfoModel[];

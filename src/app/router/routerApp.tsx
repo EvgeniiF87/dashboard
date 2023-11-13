@@ -17,10 +17,12 @@ export const routerApp = createBrowserRouter(
       <Route path={`${NAV.EVENT_ADD}`} element={<page.EventAddPage />} />
       <Route path={`${NAV.PLACES}`} element={<page.PlacesPage />} />
       <Route path={`${NAV.PLACE_ADD}`} element={<page.PlaceAddPage />} />
+      <Route path={`${NAV.PLACE_EDIT}`} element={<page.PlaceUpdatePage />} />
       <Route path={`${NAV.EVENT_UPDATA}`} element={<page.EventUpdataPage />} />
       <Route path={`${NAV.PROFILE}`} element={<page.ProfilePage />} />
       <Route path={`${NAV.SUPPORT}`} element={<page.SupportPage/>}/>
       <Route path={`${NAV.NO_PAGE}`} element={<page.NoPage />} />
+      <Route path={`${NAV.PROFILE_EDIT}`} element={<page.ProfileEditPage />} />
     </Route>
     <Route path={`${NAV.LOGIN_BY_PASSWORD}`} element={<LayoutAuth />}>
       <Route index element={<page.LoginByPasswordPage />} />

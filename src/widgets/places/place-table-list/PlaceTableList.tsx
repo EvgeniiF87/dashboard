@@ -1,7 +1,7 @@
 import { PlaceItem } from "../place-table-item/PlaceItem";
 import { useFetchAllPlace } from "../../../entities";
-import { SkeletonTable } from "../../skeleton/skeleton-table/SkeletonTable";
 import { PlaceService } from "../../../entities/place/domain/service";
+import { Loader } from "../../../shared";
 
 import styles from "./PlaceTableList.module.scss";
 
@@ -14,10 +14,10 @@ const PlaceTableList = () => {
   }
 
   if (loading) {
-    return <SkeletonTable/>; 
+    return <Loader/>; 
   }
 
-  const categoryTranslate = PlaceService.directionsTranslate()
+  const categoryTranslate = PlaceService.directionsPlaceTranslate()
 
 
   return (

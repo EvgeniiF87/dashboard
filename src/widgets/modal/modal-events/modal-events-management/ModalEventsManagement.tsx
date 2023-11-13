@@ -39,7 +39,6 @@ const ModalEventsManagement = () => {
   }
 
   return (
-    <>
       <Modal
       active={isEventModalActive} 
       handleClose={() => toggleEventModal(false)}
@@ -69,7 +68,6 @@ const ModalEventsManagement = () => {
             {eventsModalContent[eventCurrentMenegment]} 
         </div>
       </Modal>
-    </>
   );
 };
 

@@ -8,7 +8,7 @@ interface PlaceRemoveProps {
 
 const PlaceRemove: FC<PlaceRemoveProps> = (props) => {
   const { removePlace } = useRemovePlace()
-  const { loading } = usePlaceSelect()
+  const { loadingRemove } = usePlaceSelect()
 
   const handleRemove = () => {
     removePlace(props)
@@ -16,8 +16,9 @@ const PlaceRemove: FC<PlaceRemoveProps> = (props) => {
 
   return (
     <ButtonRG
-    disabled={loading}
+    disabled={loadingRemove}
     handleClick={handleRemove}
+    color='danger'
     >
     Удалить
     </ButtonRG>

@@ -1,6 +1,6 @@
 import { EventDirections, EventModel } from "../domain/events";
 
-type FiltersParamsType = {
+export type FiltersParamsType = {
   [key: string]: string | EventDirections | null;
   desc: string | null;
   title: string | null;

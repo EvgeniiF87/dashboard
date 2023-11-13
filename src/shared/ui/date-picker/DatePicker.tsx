@@ -7,20 +7,18 @@ import styles from "./DatePicker.module.css";
 
 
 export interface DatePickerProps {
-  value: Date;
+  value: Date | null;
   min?: Date;
   max?: Date;
   language?: 'ru' | 'eng';
   label?: string;
   placeholder: string;
   changeDate?: (value: Date) => void;
-  initDateRef?: Date;
   error?: string | null;
 }
 
-export const DatePicker = ({ error, placeholder, value,  language='ru', label, changeDate, initDateRef }: DatePickerProps) => {
+export const DatePicker = ({ error, placeholder, value,  language='ru', label, changeDate }: DatePickerProps) => {
   const [showPopup, setShowPopup] = useState(false);
-  const [showPlaceholder, setShowPlaceholder] = useState(true);
   const elementRef = useRef<HTMLDivElement>(null);
 
 
@@ -43,17 +41,13 @@ export const DatePicker = ({ error, placeholder, value,  language='ru', label, c
     };
   }, []);
 
+
   const handleChange = useCallback((value: Date) => {
     if (!changeDate) return;
     
     changeDate(value);
     setShowPopup(false);
-
-    if (!showPlaceholder && initDateRef === value) {
-      setShowPlaceholder(true)
-    } else {
-      setShowPlaceholder(false)
-    }
+    
   },[]);
 
   const onInputClick = () => {
@@ -73,17 +67,17 @@ export const DatePicker = ({ error, placeholder, value,  language='ru', label, c
             <DatePickerSvg />
           </div>
 
-        {showPlaceholder ?
+        {!value  ?
         <span className={styles.placeholder}>{placeholder}</span>
         :
         <span className={styles.selectedDay}>{TimeServices.getDayMonthYear(value.toString())}</span>
         }
         </div>
-        {showPopup && (
+        {showPopup &&  (
           <DatePickerPopap
           isOpenCalendar={showPopup}
           onChange={handleChange}
-          value={value}
+          value={value ? value : new Date()}
           language={language}
           />
         )}

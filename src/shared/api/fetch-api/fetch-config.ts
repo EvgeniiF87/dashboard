@@ -13,7 +13,6 @@ export function fethConfig(method: string ="GET", payload?: object): ConfigFetch
 
   const config: ConfigFetchInit = {
     method: method,
-    // credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
       'x-apollo-operation-name': 'example-operation',

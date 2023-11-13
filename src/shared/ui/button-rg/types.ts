@@ -10,7 +10,8 @@ type ColorType =
   | "dark"
   | "orange"
   | "violet"
-  | "success";
+  | "success"
+  | "default";
 
 interface ButtonRGProps {
   type?: "button" | "reset" | "submit";

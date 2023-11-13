@@ -15,6 +15,10 @@ $border-color: rgba(0, 0, 0, 0.068);
     // &:nth-last-child(1) .childrensContainer { // красим низ правый угол
     //   border-bottom: 1px solid $border-color;
     // }
+
+    .optionButton {
+      cursor: pointer;
+    }
     &:nth-child(2n+2) {
       background-color: #F4F6FF;
       svg {

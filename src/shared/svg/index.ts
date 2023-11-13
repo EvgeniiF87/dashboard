@@ -44,9 +44,12 @@ export * from "./SupportSvg";
 export * from "./ArrowUpSvg";
 export * from "./CloseSvg";
 export * from "./LogoutSvg";
-export * from "./AddСross";
+export * from "./AddСross"; //TODO rename russia char
 export * from "./InfoModalSvg";
 export * from "./CostSvg";
 export * from "./TagModalSvg";
 export * from "./ModalImageSvg";
-export * from "./AvatarSvg"
+export * from "./AvatarSvg";
+export * from "./TrashSvg";
+export * from "./TrashSvg";
+export * from "./loader-circle/LoaderCircle";

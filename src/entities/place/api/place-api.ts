@@ -7,12 +7,12 @@ const createPlace = (createPlaceInput: placeDto.CreatePlaceInput): Promise<place
   return FetchService.graphQl({ query: schems.CREATE_PLACE, variables: { createPlaceInput } })
 }
 
-const removePlace = (variables: { id: number }): Promise<placeDto.RemovePlaceResponse> => {
- return FetchService.graphQl({ query: schems.REMOVE_PLACE, variables })
+const removePlace = ({ id }: { id: number }): Promise<placeDto.RemovePlaceResponse> => {
+ return FetchService.graphQl({ query: schems.REMOVE_PLACE, variables: { removePlaceId: +id } })
 }
 
-const updatePlace = (variables: placeDto.UpdatePlaceInput): Promise<placeDto.UpdatePlaceResponse> => {
- return FetchService.graphQl({ query: schems.UPDATE_PLACE, variables }) 
+const updatePlace = (updatePlaceInput: placeDto.UpdatePlaceInput): Promise<placeDto.UpdatePlaceResponse> => {
+ return FetchService.graphQl({ query: schems.UPDATE_PLACE, variables: { updatePlaceInput } }) 
 }
 
 const place = (variables: { id: number }): Promise<placeDto.GetOnePlaceResponse> => {

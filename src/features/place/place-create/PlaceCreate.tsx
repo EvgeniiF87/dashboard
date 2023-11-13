@@ -1,20 +1,36 @@
 import type { FC } from "react";
 import { useCreatePlace, usePlaceSelect, useUploadSelect } from "../../../entities";
-import { CreatePlaceFields } from "../../../entities/place/DTO/place-dto";
+import { PlaceService } from "../../../entities/place/domain/service";
 import { ButtonRG } from "../../../shared";
 
 
-interface PlaceCreateProps extends CreatePlaceFields {
+type PlaceCreateProps = {
+  preview: File | null;
   resetInputs: () => void;
 }
 
 const PlaceCreate: FC<PlaceCreateProps> = (props) => {
-  const { resetInputs, ...params } = props
+  const { resetInputs, preview } = props
   const { createPlace } = useCreatePlace()
-  const { loading } = usePlaceSelect()
+  const { loading, inputsPlace } = usePlaceSelect()
   const { loading: loadingUpload } = useUploadSelect()
 
+
   const handleCreate = () => {
+    const dropDownDirectionList = PlaceService.getDropdownDirections();
+    const findDirectionValue = dropDownDirectionList.find(item => item.id === String(inputsPlace.directionSelect))
+
+    if (!findDirectionValue || !preview) return;
+
+    const params = {
+      desc: inputsPlace.desc,
+      direction: findDirectionValue.value,
+      existTimeEnd: inputsPlace.existTimeEnd ? new Date(inputsPlace.existTimeEnd) : new Date(),
+      existTimeStart: inputsPlace.existTimeStart ? new Date(inputsPlace.existTimeStart) : new Date(),
+      preview: preview,
+      publish: inputsPlace.public,
+      title: inputsPlace.title 
+    }
     createPlace(params, resetInputs)
   }
 
@@ -28,4 +44,4 @@ const PlaceCreate: FC<PlaceCreateProps> = (props) => {
   );
 };
 
-export  {PlaceCreate};
+export { PlaceCreate };

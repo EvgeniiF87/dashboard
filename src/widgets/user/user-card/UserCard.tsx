@@ -1,6 +1,7 @@
-import { formatPhoneNumber } from "../../../shared/lib/helpers/formatPhone";
+// import { formatPhoneNumber } from '../../../shared/lib/helpers/formatPhone';
 
-import styles from "./UserCard.module.scss";
+import { useNavigate } from 'react-router-dom';
+import styles from './UserCard.module.scss';
 
 type UserCardProps = {
   image: string;
@@ -9,44 +10,44 @@ type UserCardProps = {
   firstName?: string;
   lastName?: string;
   patronymic?: string;
+  role?: string;
 };
 
 const UserCard = ({
-  email,
+  //email,
   image,
-  phone,
-  firstName='',
-  lastName='',
-  patronymic='',
+  //phone,
+  firstName = '',
+  lastName = '',
+  // patronymic = '',
+  role = '',
 }: UserCardProps) => {
+  const pablished = 79;
+  const eventsHeld = 74;
+  const sumViews = 5423;
+
+  const navigation = useNavigate()
+
   return (
     <section className={styles.root}>
       <picture className={styles.image}>
-        <img
-          src={image}
-          alt={"user image"}
-          width={163}
-          height={136}
-        />
+        <img src={image} alt={'user image'} />
       </picture>
-      <span className={styles.name}>{[firstName, lastName].join(" ")}</span>
-
-      <div className={styles.detailInfo}>
-        <span className={styles.detailTitle}>Details</span>
-        <p>
-          <span>Name:</span> {[firstName, lastName, patronymic].join(" ")}
-        </p>
-        {email &&
-        <p>
-          <span>Email:</span> {email}
-        </p>
-        }
-        {phone &&
-        <p>
-          <span>Phone:</span> {formatPhoneNumber(phone)}
-        </p>
-        }
-      </div>
+      <h2 className={styles.name}>{[firstName, lastName].join(' ')}</h2>
+      <h2 className={styles.role}>{role}</h2>
+      <ul className={styles.container_statistics}>
+        <li className={styles.statistics}>
+          Опубликованных событий
+          <span>{pablished}</span>
+        </li>
+        <li className={styles.statistics}>
+          Проведенных событий<span>{eventsHeld}</span>
+        </li>
+        <li className={styles.statistics}>
+          Количество просмотров<span>{sumViews}</span>
+        </li>
+      </ul>
+      <button onClick={() => navigation('/profile/:id/edit')} className={styles.button}>Редактировать профиль</button>
     </section>
   );
 };

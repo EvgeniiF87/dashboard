@@ -6,14 +6,18 @@ import styles from "./TotalCountList.module.scss";
 type TotalCountListProps = {
   currentValue: number;
   onClick: ({ limit }:{ limit: number }) => void;
+  totalLength: number;
 }
 
-const countVariants = [100, 80, 60, 40, 20, 10, 5]
 
-const TotalCountList = memo(({ currentValue, onClick }: TotalCountListProps) => {
+
+const TotalCountList = memo(({ currentValue, onClick, totalLength }: TotalCountListProps) => {
   const [active, setActive] = useState<boolean>(false)
   const ref = useRef<HTMLDivElement>(null)
 
+  const countVariants = [100, 80, 60, 40, 20, 10, 5]
+
+  const filterContVariants = countVariants.filter(item => item <= totalLength)
 
   const handleClickValue = (num: number) => {
     onClick({limit: num})
@@ -47,7 +51,7 @@ const TotalCountList = memo(({ currentValue, onClick }: TotalCountListProps) => 
     <div ref={ref} className={styles.root}>
       {active &&
       <ul className={styles.variatnCountContainer}>
-      {countVariants.map(num => 
+      {filterContVariants.map(num => 
         <li key={num} onClick={() => handleClickValue(num)} className={styles.variatnCountItem}>{num}</li>
         )}
       </ul>

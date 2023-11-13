@@ -25,3 +25,4 @@ export * from "./search-tags/SearchTags";
 export * from "./date-picker-popap/DatePickerPopap";
 export * from "./media-display/MediaDisplay";
 export * from "./chat-list/ChatList"
+export * from "./avatar-option/AvatarOption"

@@ -1,9 +1,14 @@
+import { LoaderCircle } from "../../svg";
 import styles from "./Loader.module.scss";
 
 const Loader = () => {
+
   return (
-    <div className={styles.container}>
-      <div>Loading...</div>
+    <div className={styles.root}>
+      <div className={styles.container}>
+      <LoaderCircle/>
+      </div>
+
     </div>
   );
 };

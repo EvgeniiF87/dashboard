@@ -1,4 +1,26 @@
 .root {
-  display: flex;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
+  grid-template-rows: repeat(2, min-content);
+  grid-template-areas:
+    'user rating subscription'
+    'user graphLine graphLine';
   gap: 20px;
+  margin-bottom: 20px;
+  .user {
+    grid-area: user;
+  }
+  .rating {
+    grid-area: rating;
+  }
+  .subscription {
+    grid-area: subscription;
+  }
+  .graphLine {
+    grid-area: graphLine;
+    align-self: flex-end;
+  }
 }

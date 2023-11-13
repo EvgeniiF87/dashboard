@@ -29,11 +29,11 @@ export type CreatePlaceResponse = {
 
 export type UpdatePlaceInput = {
   desc?: string;
-  direction?: PlaceDirections;
-  existTimeEnd?: string;
-  existTimeStart?: string;
+  direction?: string;
+  existTimeEnd?: string | Date | undefined;
+  existTimeStart?: string | Date | undefined;
   id: number;
-  preview?: string;
+  preview?: File | string;
   publish?: boolean;
   title?: string;
 };

@@ -1,4 +1,5 @@
 import { ActionReducerMapBuilder } from "@reduxjs/toolkit";
+import { PlaceService } from "../domain/service";
 import * as thunk from "./thunk";
 import { PlaceInitState } from "./types";
 
@@ -21,16 +22,21 @@ export const extraReducers = (
 
   builder
     .addCase(thunk.fetchRemovePlace.pending, (state) => {
-      state.loading = true;
+      state.loadingRemove = true;
       state.error = null;
     })
     .addCase(thunk.fetchRemovePlace.rejected, (state, action) => {
-      state.loading = false;
+      state.loadingRemove = false;
       state.error = String(action.payload);
     })
-    .addCase(thunk.fetchRemovePlace.fulfilled, (state, ) => {
-      state.loading = false;
-      state.error = null;
+    .addCase(thunk.fetchRemovePlace.fulfilled, (state, action) => {
+
+      return  {
+        ...state,
+        places: state.places.filter(place => Number(place.id) !== action.payload),
+        loadingRemove: false,
+        error: null,
+      }
     });
 
   builder
@@ -42,7 +48,28 @@ export const extraReducers = (
       state.loading = false;
       state.error = String(action.payload);
     })
-    .addCase(thunk.fetchGetOnePlace.fulfilled, (state, ) => {
+    .addCase(thunk.fetchGetOnePlace.fulfilled, (state, action) => {
+      const { desc, title, publish, direction, existTimeStart, existTimeEnd } = action.payload
+
+      
+      const dropDownDirectionList = PlaceService.getDropdownDirections();
+      const findDirectionId = dropDownDirectionList.find(item => item.value === direction)
+      
+      state.currentPlace = {
+        ...action.payload,
+        existTimeEnd: existTimeEnd ? new Date(existTimeEnd).toString() : null, 
+        existTimeStart: existTimeStart ? new Date(existTimeStart).toString() : null,
+      }
+
+      state.inputsPlace = {
+        title,
+        desc,
+        existTimeEnd: existTimeEnd ? new Date(existTimeEnd).toString() : null, 
+        existTimeStart: existTimeStart ? new Date(existTimeStart).toString() : null,
+        directionSelect: findDirectionId ? Number(findDirectionId.id) : 0,
+        public: publish
+      }
+
       state.loading = false;
       state.error = null;
     });
@@ -79,8 +106,10 @@ export const extraReducers = (
    state.inputsPlace = {
           title: '',
           desc: '',
-          directionSelect: { id: '0', value: 'SelectDirection', label: 'Выберите категорию' },
+          directionSelect: 0,
           public: true,
+          existTimeEnd: null,
+          existTimeStart: null,
         }
       
         

@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState, ChangeEvent  } from "react";
 const useMediaFiles = () => {
   const fileRef = useRef<HTMLInputElement>(null);
   const [fileList, setFileList] = useState<
-    { id: string; result: string | ArrayBuffer | null; file: File }[]
+    { id: string; result: string | ArrayBuffer | null; file: File | null }[]
   >([]);
   const [currentEditId, setCurrentEditId] = useState<string | null>(null);
 
@@ -63,8 +63,10 @@ const useMediaFiles = () => {
     setFileList(() => []);
   }, []);
 
-  function handleEditFile(id: string) {
-    setCurrentEditId(id);
+  function handleEditFile(id?: string) {
+    if (id) {
+      setCurrentEditId(id);
+    }
 
     if (!currentEditId) return;
     
@@ -79,6 +81,16 @@ const useMediaFiles = () => {
     }
   }
 
+  function fillMedia (arrayMedia: string[]) {
+    const id = crypto.randomUUID();
+    const result: { id: string; result: string | ArrayBuffer | null; file: File | null }[] = []
+    for (let i = 0; i < arrayMedia.length; i++) {
+      const currrentMedia = arrayMedia[i]
+      result.push({ id, result: currrentMedia, file: null })
+    }
+    setFileList(result);
+  }
+
   useEffect(() => {
     if (currentEditId) {
       handleEditFile(currentEditId);
@@ -86,6 +98,7 @@ const useMediaFiles = () => {
   }, [currentEditId, handleEditFile]);
 
   return {
+    fillMedia,
     handleEditFile,
     fileRef,
     changeFile,

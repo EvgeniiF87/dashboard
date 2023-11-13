@@ -32,15 +32,3 @@ const ContentHeader = ({ breadcrumbs,  title }: ContentHeaderProps) => {
 };
 
 export { ContentHeader };
-
-//        example
-
-// const breadcrumbEventsPage = [     
-//   { name: "Главная", href: "/" },
-//   { name: "список событий", href: null },    // last href  null !
-// ];
-
-// <ContentHeader 
-//     title="Список событий" 
-//     breadcrumbs={breadcrumbEventsPage}
-//     />

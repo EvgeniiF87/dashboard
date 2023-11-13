@@ -1,0 +1,14 @@
+.changePhoto {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  cursor: pointer;
+  .icon {
+    width: 14px;
+    height: 14px;
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

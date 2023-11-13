@@ -28,7 +28,11 @@ const TablePagination = () => {
           prevPage={() => changePage({ page: eventsCurrentPage - 1 })}
           totalCount={events.length - 1}
           />
-        <TotalCountList onClick={handleChangeLimit} currentValue={limit} />
+        <TotalCountList 
+        onClick={handleChangeLimit} 
+        currentValue={limit} 
+        totalLength={5} //TODO GET EVENT TOTAL COUNT
+        />
           </div>
       )}
     </>

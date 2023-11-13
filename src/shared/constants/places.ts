@@ -8,6 +8,11 @@ const breadcrumbPlaceAddPage = [
   { name: "Список мест", href: "/places" },
   { name: "Добавить место", href: null },
 ];
+const breadcrumbPlaceEditPage = [
+  { name: "Главная", href: "/" },
+  { name: "Список мест", href: "/places" },
+  { name: "Редактировать место", href: null },
+];
 
 const tableHeadList = [
   " ",
@@ -24,5 +29,6 @@ const tableHeadList = [
 export const PLACES = {
   breadcrumbPlacesPage,
   breadcrumbPlaceAddPage,
+  breadcrumbPlaceEditPage,
   tableHeadList,
 }

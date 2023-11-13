@@ -8,3 +8,4 @@ export * from "./user";
 export * from "./info";
 export * from "./statistics";
 export * from "./notification";
+export * from "./subscription/Subscription"

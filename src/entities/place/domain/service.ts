@@ -46,8 +46,8 @@ export class PlaceService {
 
    //---------------- TODO вынести в отдельную функцию---------------------
 
-    const timeStart = payload.existTimeStart && typeof payload.existTimeStart !== 'string' ? this.getInputDateFromParams(payload.existTimeStart) : null
-    const timeEnd = payload.existTimeEnd && typeof payload.existTimeEnd !== 'string' ? this.getInputDateFromParams(payload.existTimeEnd) : null
+    const timeStart = payload.existTimeStart && typeof payload.existTimeStart !== 'string' ? this.getDateFromParams(payload.existTimeStart) : null
+    const timeEnd = payload.existTimeEnd && typeof payload.existTimeEnd !== 'string' ? this.getDateFromParams(payload.existTimeEnd) : null
 
     const resultInputs: CreatePlaceInput = {
       desc: payload.desc,
@@ -81,8 +81,7 @@ export class PlaceService {
     dropdownPlaceDirectionsList.push({ id: '0', value: 'SelectDirection', label: 'Выберите категорию' })   
 
     for (const value in PlaceDirections) {
-      const randomId = crypto.randomUUID()
-      dropdownPlaceDirectionsList.push({ id: randomId, value, label: translate[value] });
+      dropdownPlaceDirectionsList.push({ id: String(dropdownPlaceDirectionsList.length), value, label: translate[value] });
     }
    
     return dropdownPlaceDirectionsList;
@@ -102,7 +101,7 @@ export class PlaceService {
      };
    }
 
-   static getInputDateFromParams(value?: Date): string { //TODO вынести в отдельный сервис по работе с датами
+   static getDateFromParams(value?: Date): string { //TODO вынести в отдельный сервис по работе с датами
     if (!value) return "";
 
     const year = value.getFullYear();
@@ -125,18 +124,5 @@ export class PlaceService {
     };
   }
 
-  static directionsTranslate(): { [key: string]: string } {
-    return {
-      Museums: "Музеи",
-      Other: "Другое",
-      Parks: "Парки",
-      Restaurants: "Рестораны",
-      Show: "Показы",
-      Space: "Космос",
-      Theaters: "Театры",
-      Tourism: "Туризм",
-      Walk: "Ходить",
-    };
-  }
 
 }

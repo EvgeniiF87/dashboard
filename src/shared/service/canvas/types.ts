@@ -1,10 +1,10 @@
-import { CanvasDraw } from "./CanvasDraw";
+import { CanvasDraw } from './CanvasDraw';
 
 type FillOptions = { color?: string };
 type BorderOptions = {
   color?: string;
   width?: number;
-  join?: "bevel" | "round";
+  join?: 'bevel' | 'round';
 };
 interface FillBorderOptions {
   fill?: FillOptions;
@@ -13,7 +13,7 @@ interface FillBorderOptions {
 export interface IStraightLineOptions {
   startLine: { x: number; y: number };
   lines: number[];
-  cap?: "round" | "square";
+  cap?: 'round' | 'square';
   border?: BorderOptions;
 }
 
@@ -48,8 +48,8 @@ export interface ITextOptions {
   text: string;
   x: number;
   y: number;
-  textAling?: "start" | "right" | "center" | "end";
-  baseline?: "bottom" | "middle" | "top";
+  textAling?: 'start' | 'right' | 'center' | 'end';
+  baseline?: 'bottom' | 'middle' | 'top';
 }
 export interface IImageOptions {
   image: HTMLImageElement;
@@ -65,7 +65,7 @@ export interface IImageOptions {
     y: number;
     width: number;
     height: number;
-  }; 
+  };
 }
 
 export interface ISelector {
@@ -79,4 +79,8 @@ export interface PieChardDrawProps {
   drawService: CanvasDraw;
   selectors: ISelector[];
   totalCount: number;
+}
+
+export interface CanvasDrawGraphProps {
+  baseContext: CanvasRenderingContext2D;
 }

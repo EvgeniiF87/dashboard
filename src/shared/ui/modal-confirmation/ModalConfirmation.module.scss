@@ -1,17 +1,4 @@
-.overflow {
-  visibility: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 0;
-  display: flex;
-}
-.overflow_active {
-  visibility: visible;
-}
+
 .container {
   background-color: #ffff;
   width: 502px;
@@ -46,32 +33,18 @@
 
 .button_container {
   min-height: 44px;
-  button {
-    all: unset;
-    padding: 12px 20px;
-    margin-right: 20px;
-    cursor: pointer;
-    &:last-child {
-      margin-right: 0;
-    }
-  }
+  column-gap: 20px;
+
   .button_close {
+    padding: 12px 20px;
+    cursor: pointer;
     color: var(--button, #507aa5);
-    font-family: Inter;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
+    background-color: rgba(255, 255, 255, 0);
   }
 
-  .button_save {
-    border-radius: 8px;
-    background: var(--button, #507aa5);
-    color: #fff;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 124%;
-  }
+  
 }

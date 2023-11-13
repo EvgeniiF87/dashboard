@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { PlaceModel } from "../../../entities";
-import { CheckBox, EmptyPhoto } from "../../../shared";
-import { EnentsItemManagement } from "../../events/enents-item-management/EnentsItemManagement";
+import { CheckBox, EmptyPhoto, OptionsSvg } from "../../../shared";
+
 
 import styles from "./PlaceItem.module.scss";
 
@@ -13,12 +14,18 @@ type PlaceItemProps = {
 const PlaceItem = ({ direction, place }: PlaceItemProps) => {
   const [active, setActive] = useState(false)
   const [activePublic, setActivePublic] = useState(place.publish)
+  const navigate = useNavigate()
 
 
   return (
     <li className={styles.event}>
       <span className={styles.eventOptions}>
-        <EnentsItemManagement  eventId={place.id} />
+        <div 
+        className={styles.optionButton} 
+        onClick={() => navigate(`/places/edit/${place.id}`)}
+        >
+          <OptionsSvg />
+        </div>
       </span>
       <span className={styles.checkbox}>
         <CheckBox active={active} onClick={() => setActive(!active)}/>

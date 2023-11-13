@@ -14,5 +14,7 @@ export const ProfilePage = lazy(() => import("./profile-page/ProfilePage"));
 export const Statistics = lazy(() => import("./statistics/Statistics"));
 export const PlaceAddPage = lazy(() => import("./place-add-page/PlaceAddPage"));
 export const PlacesPage = lazy(() => import("./places-page/PlacesPage"));
-export const SupportPage = lazy(() => import("./support-page/SupportPage"))
-export const ProfileDataPage = lazy(() => import("./profile-data-page/ProfileData"))
+export const SupportPage = lazy(() => import("./support-page/SupportPage"));
+export const ProfileDataPage = lazy(() => import("./profile-data-page/ProfileData"));
+export const ProfileEditPage = lazy(() => import("./profile-edit-page/ProfileEdit"));
+export const PlaceUpdatePage = lazy(() => import("./place-update-page/PlaceUpdatePage"));

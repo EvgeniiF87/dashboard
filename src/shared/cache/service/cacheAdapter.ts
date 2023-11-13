@@ -16,7 +16,7 @@ export const cacheAdapter: CacheService = {
   },
   resetKeysInCach(value) {
     const cache = cacheAdapter.cache().cache
-
+    
     if (!value) {
       cache.forEach(item => {
           cacheAdapter.removeKeyFromCache(item.key)

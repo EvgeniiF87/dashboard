@@ -48,12 +48,10 @@ export class EventService {
   static  getDropdownDirections() {
     const dropdownDirectionList = [];
     const translate = this.directionsTranslate()
-    let startId = 1;
     dropdownDirectionList.push({ id: '0', value: 'SelectCategory', label: 'Выберите направление' })
 
     for (const value in EventDirections) {
-      dropdownDirectionList.push({ id: String(startId), value, label: translate[value] });
-      startId++;
+      dropdownDirectionList.push({ id: String(dropdownDirectionList.length), value, label: translate[value] });
     }
    
     return dropdownDirectionList;

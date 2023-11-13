@@ -1,0 +1,30 @@
+.discription {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  .quantity {
+    color: #000;
+    text-align: center;
+
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 124%;
+  }
+  .change_time {
+    display: flex;
+    column-gap: 12px;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid var(--border, #eee);
+    background: var(--, #fff);
+  }
+  .change_time::after {
+    content: '';
+    display: block;
+    background-image: url(../../../../public/arrow-down.png);
+    width: 12px;
+    height: 12px;
+  }
+}

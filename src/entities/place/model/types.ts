@@ -6,17 +6,20 @@ type ParamsSearchPlaceType = {
 }
 
 type InputsPlaceStateType = {
+  // [key: string]: string | null | number | boolean;
   title: string;
   desc: string;
   public: boolean;
-  directionSelect: { id: string; value: string; label: string };
+  existTimeEnd: string | null;
+  existTimeStart: string | null;
+  directionSelect: number;
 }
 
 type ErrorsPlaceStateType = {
   title: string | null;
   desc: string | null;
-  timeStart: string | null;
-  timeEnd: string | null;
+  existTimeStart: string | null;
+  existTimeEnd: string | null;
   direction: string | null;
   preview: string | null;
   selection: string | null;
@@ -24,7 +27,9 @@ type ErrorsPlaceStateType = {
 
 export type PlaceInitState = {
   places: PlaceModel[];
+  currentPlace: PlaceModel | null;
   loading: boolean;
+  loadingRemove: boolean;
   error: string | null;
   initTime: string;
   paramsSearch: ParamsSearchPlaceType;

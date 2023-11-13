@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 20px 28px;
+  border-radius: 12px;
+  border: 1px solid var(--border-base, #ebebeb);
+  background: var(--text-white, #fff);
+}

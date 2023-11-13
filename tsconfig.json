@@ -21,6 +21,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/widgets/graph-line/.jsx"],
+  "include": ["src", "src/widgets/statistics/graph-line/.jsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

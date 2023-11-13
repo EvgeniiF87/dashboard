@@ -14,39 +14,46 @@ mutation($createPlaceInput: CreatePlaceInput!) {
 `;
 
 export const REMOVE_PLACE = `
-mutation($id: Int!) {
-  removePlace(id: $id) {
+mutation($removePlaceId: Int!) {
+  removePlace(id: $removePlaceId) {
     id
   }
 }
 `;
 
 export const UPDATE_PLACE = `
-mutation(
-  $desc: String, 
-  $id: Int!, 
-  $direction: PlaceDirections, 
-  $preview: String,
-  $publish: Boolean, 
-  $title: String,
-  $existTimeStart: DateTime,
-  $existTimeEnd: DateTime
-){
-  updatePlace(updatePlaceInput: { 
-  desc: $desc, 
-  id: $id, 
-  direction: $direction, 
-  preview: $preview,
-  publish: $publish, 
-  title: $title,
-  existTimeStart: $existTimeStart,
-  existTimeEnd: $existTimeEnd
-  }
-  ) {
-    id
-  }
+mutation($updatePlaceInput: UpdatePlaceInput!) {
+  updatePlace(updatePlaceInput: $updatePlaceInput) {
+    title
+  } 
 }
 `;
+// export const UPDATE_PLACE = `
+// mutation(
+//   $desc: String, 
+//   $id: Int!, 
+//   $direction: PlaceDirections, 
+//   $preview: String,
+//   $publish: Boolean, 
+//   $title: String,
+//   $existTimeStart: DateTime,
+//   $existTimeEnd: DateTime
+// ){
+//   updatePlace(updatePlaceInput: { 
+//   desc: $desc, 
+//   id: $id, 
+//   direction: $direction, 
+//   preview: $preview,
+//   publish: $publish, 
+//   title: $title,
+//   existTimeStart: $existTimeStart,
+//   existTimeEnd: $existTimeEnd
+//   }
+//   ) {
+//     id
+//   }
+// }
+// `;
 
 export const GET_PLACE = `
 query($id: Int!) {

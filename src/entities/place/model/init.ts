@@ -2,7 +2,9 @@ import { PlaceInitState } from "./types";
 
 const initialState: PlaceInitState = {
   places: [],
+  currentPlace: null,
   loading: false,
+  loadingRemove: false,
   error: null,
   initTime: "",
   paramsSearch: {
@@ -12,17 +14,15 @@ const initialState: PlaceInitState = {
     title: "",
     desc: "",
     public: true,
-    directionSelect: {
-      id: "0",
-      value: "SelectDirection",
-      label: "Выберите категорию",
-    },
+    existTimeEnd: null,
+    existTimeStart: null,
+    directionSelect: 0,
   },
   errorsList: {
     title: null,
     desc: null,
-    timeStart: null,
-    timeEnd: null,
+    existTimeStart: null,
+    existTimeEnd: null,
     direction: null,
     preview: null,
     selection: null,
