@@ -2,7 +2,7 @@ import { ErrorRad } from "../../svg/ErrorRad";
 import { ButtonRG } from "../button-rg/ButtonRG";
 import { Modal } from "../modal-rg/Modal";
 
-import style from "./modalConfirmation.module.scss";
+import style from "./ModalConfirmation.module.scss";
 
 type ModalConfirmation = {
   status: "error" | "success";
